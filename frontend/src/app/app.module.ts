@@ -8,6 +8,11 @@ import { MainComponent } from './components/main.component';
 import { CaptureComponent } from './components/capture.component';
 import {CameraService} from './camera.service';
 import { LoginComponent } from './components/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+import { AuthenticationService } from './authentication.service';
+
+
 
 const ROUTES: Routes = [
 	{ path: '', component: LoginComponent },
@@ -24,9 +29,13 @@ const ROUTES: Routes = [
   imports: [
 		BrowserModule, 
 		RouterModule.forRoot(ROUTES),
-		WebcamModule,
+    WebcamModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
+    
   ],
-  providers: [ CameraService ],
+  providers: [ CameraService, AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
