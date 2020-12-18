@@ -45,8 +45,8 @@ export class MainComponent implements OnInit {
 		formData.set('comments', this.mainForm.get('comments').value);
 		formData.set('name', 'imageFile');
 		formData.set('imageFile', this.cameraSvc.getImage().imageData);
-		formData.set('username', this.loginSvc.loginArray.username);
-		formData.set('password', this.loginSvc.loginArray.password);
+		formData.set('username', this.loginSvc.loginInfo.username);
+		formData.set('password', this.loginSvc.loginInfo.password);
         this.http.post('/share', formData, {observe:'response'})
           .toPromise()
           .then((result)=>{ 
